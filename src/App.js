@@ -1,7 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
-
-import {data} from './Items';
 import './App.css';
 import Product from './components/product';
 import Cart from './components/cart'
@@ -112,7 +110,6 @@ class App extends Component {
     return (
       <>
         <Product 
-          data={data}
           products={products}
           addToCart={this.addToCart}
           disable={disable}/>

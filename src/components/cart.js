@@ -1,13 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 
 export default class Cart extends Component {
   constructor(props) {
     super(props);
-
-  // this.handleMinusHelper = this.handleMinusHelper.bind(this)
-  // this.handlePlusHelper = this.handlePlusHelper.bind(this)
-  // this.handleDelete = this.handleDelete.bind(this)
   } 
   
   handleMinusHelper = (e) => {
@@ -18,6 +14,10 @@ export default class Cart extends Component {
   }
   handleDelete = (e) => {
     this.props.deleteFromCart(e);
+  }
+  sendOrder = () => {
+    let order = JSON.stringify(this.props.products);
+    console.dir(order)
   }
 
   render() {
@@ -34,13 +34,13 @@ export default class Cart extends Component {
               <button id={elem.id} onClick={this.handlePlusHelper}> + </button>
               <button id={elem.id} onClick={this.handleDelete}> Delete from Cart </button>
             </li>
-          )) : <p>Корзина пуста</p>}
+          )) : <p>The cart is empty</p>}
           
         </ul>
         
-        <p>Итоговая сумма:{this.props.totalPrice} </p>
-        <p>Количество позиций:{this.props.totalQuantity}  </p>
-        <button>Заказать</button>
+        <p>Total price:{this.props.totalPrice} </p>
+        <p>Total quantity:{this.props.totalQuantity}  </p>
+        <button onClick={this.sendOrder}>Send the Order</button>
       </div>
     )
   }
