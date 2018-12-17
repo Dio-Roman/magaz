@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import {data} from '../Items';
+import PropTypes from 'prop-types';
+import {data} from '../data';
+import Main from './main';
+import Card from './card';
+// import styled from 'styled-components';
+
+// const Main = styled.div`
+// display: "inline-grid",
+// `;
 
 export default class Product extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleClickAdd = (e) => {
     let item = e.target.value;
     let arrItem = item.split(',')
@@ -13,25 +17,23 @@ export default class Product extends Component {
     this.props.addToCart(obj);
     e.target.disabled = "true";
   }
-
-  testClick = (node) => {
-    this.firstRef  = node;
-    console.log(this.firstRef)
-    return     this.firstRef
-  }
   
   render() {
     return (
-      <main style={{display: "inline-grid",}}>
+      <Main>
         {data.map(el=>(
-          <div key={el.id}style={{display: "flex", border:"2px solid black"}}>
+          <Card key={el.id}>
             <h2>{el.name}</h2>
             <img height="200" width="200" src={el.src} alt={el.name}/>
             <p>Price: {el.price} rub.</p>
             <button   value={[el.id, el.name, el.quantity, el.price]} onClick={this.handleClickAdd}>Add to Cart</button>
-          </div>
+          </Card>
         ))}
-      </main>
+      </Main>
     );
   }
+}
+Product.PropTypes = {
+  products: PropTypes.array,
+  addToCart: PropTypes.func
 }

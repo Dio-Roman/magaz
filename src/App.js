@@ -12,7 +12,6 @@ class App extends Component {
        products: [],
        totalQuantity: 0,
        totalPrice: 0,
-      //  disable: false
     }
   }
   
@@ -106,13 +105,12 @@ class App extends Component {
   }
 
   render() {
-    const {products, totalPrice, totalQuantity, disable} = this.state;
+    const {products, totalPrice, totalQuantity} = this.state;
     return (
       <>
         <Product 
           products={products}
-          addToCart={this.addToCart}
-          disable={disable}/>
+          addToCart={this.addToCart}/>
           
         <Cart 
           products={products}
