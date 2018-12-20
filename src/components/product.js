@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {data} from '../data';
-import Main from './main';
-import Card from './card';
-// import styled from 'styled-components';
-
-// const Main = styled.div`
-// display: "inline-grid",
-// `;
+import {Main, Card, Btn, PriceP, NameH2} from './productStyle';
 
 export default class Product extends Component {
   handleClickAdd = (e) => {
@@ -23,10 +17,10 @@ export default class Product extends Component {
       <Main>
         {data.map(el=>(
           <Card key={el.id}>
-            <h2>{el.name}</h2>
+            <NameH2>{el.name}</NameH2>
             <img height="200" width="200" src={el.src} alt={el.name}/>
-            <p>Price: {el.price} rub.</p>
-            <button   value={[el.id, el.name, el.quantity, el.price]} onClick={this.handleClickAdd}>Add to Cart</button>
+            <PriceP>Price: {el.price} rub.</PriceP>
+            <Btn   value={[el.id, el.name, el.quantity, el.price]} onClick={this.handleClickAdd}>Add to Cart</Btn>
           </Card>
         ))}
       </Main>

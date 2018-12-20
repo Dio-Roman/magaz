@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import {CartDiv, TotalPriceP, Btn, Number, Empty, Ul, PlusMinusBtn, Counter, Delete} from './cartStyle';
 
 export default class Cart extends Component {
   handleMinusHelper = (e) => {
@@ -19,23 +19,28 @@ export default class Cart extends Component {
 
   render() {
     return (
-      <div>
-        <ul>
+      <CartDiv>
+        <h1>Your Cart</h1>
+        <Ul>
         {this.props.products.length > 0 ? 
           this.props.products.map(elem => (
             <li key={elem.price}> 
-              {elem.name} : 
-              {elem.quantity>0 && <button id={elem.id} onClick={this.handleMinusHelper}> - </button> }
-              {elem.quantity} 
-              <button id={elem.id} onClick={this.handlePlusHelper}> + </button>
-              <button id={elem.id} onClick={this.handleDelete}> Delete from Cart </button>
+              {elem.name} :  {` `} 
+              <Counter>
+                {elem.quantity>0 && <PlusMinusBtn id={elem.id} onClick={this.handleMinusHelper}> - </PlusMinusBtn> }
+                <Number>{elem.quantity} </Number>
+                <PlusMinusBtn id={elem.id} onClick={this.handlePlusHelper}> + </PlusMinusBtn>
+              </Counter>
+              <Delete id={elem.id} onClick={this.handleDelete}> Delete </Delete>
             </li>
-          )) : <p>The cart is empty</p>}
-        </ul>
-        <p>Total price:{this.props.totalPrice} </p>
-        <p>Total quantity:{this.props.totalQuantity}  </p>
-        <button onClick={this.sendOrder}>Send the Order</button>
-      </div>
+            
+          )) : <Empty>The cart is empty</Empty>}
+        </Ul>
+        <br/>
+        <TotalPriceP>Total price:{' '}<Number>{this.props.totalPrice} rub.</Number> </TotalPriceP>
+        <p>Total quantity:{' '}<Number>{this.props.totalQuantity} pcs.</Number>  </p>
+        <Btn onClick={this.sendOrder} title="Весь заказ в формате JSON в консоле">Send the Order</Btn>
+      </CartDiv>
     )
   }
 }
