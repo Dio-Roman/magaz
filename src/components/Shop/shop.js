@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Navigate from '../Navigate/navigate';
-import Product from '../Product/product';
+import {Product} from '../Product/product';
 import Cart from '../Cart/cart'
 
 class Shop extends Component {

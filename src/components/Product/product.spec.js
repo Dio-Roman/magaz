@@ -4,23 +4,15 @@ import Product from './product';
 import {data} from '../../data';
 
 describe ('Product', () => {
-    // const data = [1,2,3];
-    // newData.length = 0;
+    
+    data.length = 3;
 
-    //     products : []
-    // }
-    
-    
     describe ('prod list', () => {
-        const nextProps = {
-                // ...props,
-                // products: []
-                //  newData : [1,2]
-            }
         const prodList = shallow (<Product  data ={data}/>);
         it ('list', () => {
             // console.log(prodList.debug())
-            expect (prodList.find('Main')).toHaveLength(data.length)
+            // expect (prodList.find('main')).toHaveLength(data.length);
+            expect(prodList.find('main').children()).toHaveLength(3)
         })
     })
 })

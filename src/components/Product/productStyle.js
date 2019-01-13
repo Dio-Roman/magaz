@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-const Main = styled.main`
-display: inline-grid;
-margin-left: 10px;
-`;
-
 const Card = styled.div`
 display: flex;
 border: 2px solid green;
@@ -31,7 +26,11 @@ const NameH2 = styled.h2`
 margin-left: 13px;
 `;
 
+// не styled componenet из-за тестов
+const mainStyle = {
+  display: 'inline-grid',
+  marginLeft: '10px'  
+}
 
 
-
-export {Main, Card, Btn, PriceP, NameH2};
+export {mainStyle, Card, Btn, PriceP, NameH2};
