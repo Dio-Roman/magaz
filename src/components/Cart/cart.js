@@ -26,7 +26,7 @@ export default class Cart extends Component {
           this.props.products.map(elem => (
             <li key={elem.price}> 
               {elem.name} :  {` `} 
-              <Counter>
+              <Counter >
                 {elem.quantity>0 && <PlusMinusBtn id={elem.id} onClick={this.handleMinusHelper}> - </PlusMinusBtn> }
                 <Number>{elem.quantity} </Number>
                 <PlusMinusBtn id={elem.id} onClick={this.handlePlusHelper}> + </PlusMinusBtn>

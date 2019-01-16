@@ -1,0 +1,19 @@
+/* .animate {
+    margin: 0 auto;
+} */
+
+.animate-appear {
+    opacity: 0;
+}
+.animate-appear.animate-appear-active {
+    opacity: 1;
+    transition: opacity 1500ms ease;
+}
+/* .animate-exit {
+    opacity: 1;
+}
+.animate-exit.animate-exit-active {
+    opacity: 0;
+    transition: opacity 3s ease;
+}
+ */
