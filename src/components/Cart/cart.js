@@ -14,7 +14,7 @@ export default class Cart extends Component {
   }
   sendOrder = () => {
     let order = JSON.stringify(this.props.products);
-    console.dir(order)
+    console.log("Your order:", order,this.props.totalPrice, "rub.")
   }
 
   render() {

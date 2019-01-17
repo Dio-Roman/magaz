@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {data} from '../../data';
+// import {data} from '../../data'; добавляю через ComponentDidMount
 import {mainStyle, Card, Btn, PriceP, NameH2} from './productStyle';
-import {withHoc} from './withHoc';
+import {composeHocs} from './withHoc';
 
-const Product = withHoc (({onClick}) => 
+const Product = composeHocs (({onClick,prod}) => 
   <main style={mainStyle}>
-    {data.map(el=>(
+    {prod.map(el=>(
       <Card key={el.id}>
         <NameH2>{el.name}</NameH2>
         <img height="200" width="200" src={el.src} alt={el.name}/>
@@ -47,6 +47,7 @@ export default class Product extends Component {
 
 Product.propTypes = {
   products: PropTypes.array,
-  addToCart: PropTypes.func
+  addToCart: PropTypes.func,
+  
 }
 export {Product};
