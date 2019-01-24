@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // import {data} from '../../data'; добавляю через ComponentDidMount
 import {mainStyle} from './style';
 import {composeHocs} from './withHoc';
-import Product from '../Product/product';
+import {Product} from '../Product/product';
 
 const ProductList = composeHocs (({onClick,prod}) => 
   <main style={mainStyle}>
