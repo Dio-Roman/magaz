@@ -1,7 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {data} from '../data';
-import {Main, Card, Btn, PriceP, NameH2} from './productStyle';
+// import {data} from '../../data'; добавляю через ComponentDidMount
+import {mainStyle} from './style';
+import {composeHocs} from './withHoc';
+import Product from '../Product/product';
+
+const ProductList = composeHocs (({onClick,prod}) => 
+  <main style={mainStyle}>
+    {prod.map(el=>(
+      <Product
+        key = {el.id}
+        id = {el.id}
+        name = {el.name}
+        src = {el.src}
+        price = {el.price}
+        quantity = {el.quantity}
+        onClick = {onClick}
+      />      
+    ))}
+  </main>
+)
+
+/*если без recompose
 
 export default class Product extends Component {
   handleClickAdd = (e) => {
@@ -14,7 +34,7 @@ export default class Product extends Component {
   
   render() {
     return (
-      <Main>
+      <main style={mainStyle}>
         {data.map(el=>(
           <Card key={el.id}>
             <NameH2>{el.name}</NameH2>
@@ -23,11 +43,15 @@ export default class Product extends Component {
             <Btn   value={[el.id, el.name, el.quantity, el.price]} onClick={this.handleClickAdd}>Add to Cart</Btn>
           </Card>
         ))}
-      </Main>
+      </main>
     );
   }
 }
-Product.PropTypes = {
+*/
+
+ProductList.propTypes = {
   products: PropTypes.array,
-  addToCart: PropTypes.func
+  addToCart: PropTypes.func,
+  
 }
+export {ProductList};

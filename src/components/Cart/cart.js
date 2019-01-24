@@ -17,6 +17,15 @@ export default class Cart extends Component {
     console.log("Your order:", order,this.props.totalPrice, "rub.")
   }
 
+  static propTypes = {
+    products: PropTypes.array,
+    totalPrice: PropTypes.number,
+    totalQuantity: PropTypes.number,
+    handleMinus: PropTypes.func,
+    handlePlus: PropTypes.func,
+    deleteFromCart: PropTypes.func,
+  }
+
   render() {
     return (
       <CartDiv>
@@ -42,13 +51,4 @@ export default class Cart extends Component {
       </CartDiv>
     )
   }
-}
-
-Cart.propTypes = {
-  products: PropTypes.array,
-  totalPrice: PropTypes.number,
-  totalQuantity: PropTypes.number,
-  handleMinus: PropTypes.func,
-  handlePlus: PropTypes.func,
-  deleteFromCart: PropTypes.func,
 }

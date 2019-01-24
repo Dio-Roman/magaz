@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import Product from './product';
+import ProductList from './productList';
 import {data} from '../../data';
 
 describe ('Product', () => {
@@ -8,7 +8,7 @@ describe ('Product', () => {
     data.length = 3;
 
     describe ('prod list', () => {
-        const prodList = shallow (<Product  data ={data}/>);
+        const prodList = shallow (<ProductList  data ={data}/>);
         it ('list', () => {
             // console.log(prodList.debug())
             // expect (prodList.find('main')).toHaveLength(data.length);

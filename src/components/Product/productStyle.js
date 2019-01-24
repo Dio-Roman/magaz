@@ -6,7 +6,6 @@ border: 2px solid green;
 width: 850px;
 justify-content: space-between;
 `;
-
 const Btn = styled.button`
 height: fit-content;
 margin: auto 40px;
@@ -26,11 +25,4 @@ const NameH2 = styled.h2`
 margin-left: 13px;
 `;
 
-// не styled componenet из-за тестов
-const mainStyle = {
-  display: 'inline-grid',
-  marginLeft: '10px'  
-}
-
-
-export {mainStyle, Card, Btn, PriceP, NameH2};
+export {Card, Btn, PriceP, NameH2};

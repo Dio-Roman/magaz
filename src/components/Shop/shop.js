@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Navigate from '../Navigate/navigate';
-import {Product} from '../Product/product';
+import {ProductList} from '../ProductList/productList';
 import Cart from '../Cart/cart'
 
 class Shop extends Component {
@@ -41,7 +41,6 @@ class Shop extends Component {
        }
        return el
      }),
-    //  totalQuantity: this.state.totalQuantity-1
      }
    )
    this.sumQuantity ();
@@ -56,17 +55,10 @@ class Shop extends Component {
         }
         return el
       }),
-      // totalQuantity: this.state.totalQuantity+1
       }
     )
     this.sumQuantity ();
     this.sumPrice ()
-  }
-  
-  isinCart = () => {
-    this.state.products.forEach (el => {
-      console.log(el.id)
-    })
   }
 
   addToCart = (newProd) => {
@@ -77,19 +69,15 @@ class Shop extends Component {
 
   deleteFromCart = (deleteProd) => {
     let numberOfElem ;
-    // console.log(deleteProd.target.id);
     this.state.products.map (el => {
-        // let newProducts = [];
         if (el.id == deleteProd.target.id) {
           numberOfElem = this.state.products.indexOf(el);
-          // console.log(numberOfElem)
           return numberOfElem
         }
       })
     let newProdState1 = this.state.products.splice(0, numberOfElem);
     let newProdState2 = this.state.products.splice( numberOfElem+1, this.state.products.length-(numberOfElem+1));
     let newProdState = newProdState1.concat(newProdState2);
-    // console.log (newProdS  tate)
     this.setState ({
       products: newProdState,
       totalQuantity: newProdState.reduce (function (acc, cur) { 
@@ -108,16 +96,17 @@ class Shop extends Component {
     return (
       <>
         <Navigate/>
-        <Product 
-          products={products}
-          addToCart={this.addToCart}/>
+        <ProductList 
+          addToCart={this.addToCart}
+        />
         <Cart 
           products={products}
           totalPrice={totalPrice}
           totalQuantity={totalQuantity}
           handleMinus={this.handleMinus}
           handlePlus={this.handlePlus}
-          deleteFromCart={this.deleteFromCart}/>
+          deleteFromCart={this.deleteFromCart}
+        />
       </>
     );
   }

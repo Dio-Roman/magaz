@@ -1,6 +1,6 @@
 import React , { Component } from 'react';
 import {Link} from 'react-router-dom';
-import {AboutDiv, P} from './aboutStyle';
+import {AboutDiv} from './aboutStyle';
 import {CSSTransition} from 'react-transition-group';
 import './style.css';
 
@@ -14,24 +14,6 @@ const theme = createMuiTheme ({
       primary: teal
   }
 })
-
-// export default function About () {
-//   return (
-    
-//           <AboutDiv >
-// {/* <TransitionGroup> */}
-// <CSSTransition classNames="animate" >
-//             <h3>
-//               Hello World.
-//             </h3>
-// </CSSTransition>
-// {/* </TransitionGroup> */}
-//             <P>Welcome to our</P>
-//             <button>click me!</button>
-//             <Link to ='/'>online shop!</Link>
-//           </AboutDiv>
-//   )
-// }
 
 export default class About extends Component {
   constructor(props) {
@@ -52,7 +34,7 @@ export default class About extends Component {
         <h3>
           Hello World.
         </h3>
-        <P>Welcome to our</P>
+        <p>Welcome to our</p>
         <MuiThemeProvider theme={theme}>
           <Button variant="contained" color='primary' onClick={this.handleClick}>click me!</Button>
         </MuiThemeProvider>     
