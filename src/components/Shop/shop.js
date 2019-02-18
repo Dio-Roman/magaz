@@ -2,7 +2,7 @@ import React from 'react';
 
 import Navigate from '../Navigate/navigate';
 import ProductList from '../ProductList/productList';
-import Cart from '../Cart/cart'
+import Cart from '../../containers/Cart/cart'
 
 const Shop = () => { 
     return (

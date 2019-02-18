@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Shop from './components/Shop/shop';
-import About from './components/About/about';
+import About from './containers/About/about';
 
 class App extends Component {
   render () {

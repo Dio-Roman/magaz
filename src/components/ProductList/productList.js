@@ -1,7 +1,7 @@
 import React from 'react';
 import {data} from '../../data';
 import {mainStyle} from './style';
-import Product from '../Product/product';
+import Product from '../../containers/Product/product';
 
 const  ProductList = () => {
     return (
