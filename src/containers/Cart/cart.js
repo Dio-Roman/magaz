@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {CartDiv, TotalPriceP, Btn, Number, Empty, Ul, PlusMinusBtn, Counter, Delete} from './cartStyle';
 import {connect} from 'react-redux';
-import {deleteFromCart, plusItem, minusItem} from '../../actions/actionCreator';
+import {deleteFromCart, plusItem, minusItem, setDisable} from '../../actions/actionCreator';
 
 
 class Cart extends Component {
@@ -28,6 +28,11 @@ class Cart extends Component {
     console.log("Your order:", order,this.sumPrice(), "rub.")
   }
 
+  delete =(id) => {
+    this.props.deleteFromCart(id);
+    this.props.setDisable(id)
+  }
+
   static propTypes = {
     productsInCart: PropTypes.array,
     deleteFromCart: PropTypes.func,
@@ -36,7 +41,7 @@ class Cart extends Component {
   }
 
   render() {
-        const {productsInCart, deleteFromCart, plusItem, minusItem } = this.props;
+        const {productsInCart, plusItem, minusItem} = this.props;
         
     return (
       <CartDiv>
@@ -51,7 +56,7 @@ class Cart extends Component {
                 <Number>{elem.quantity} </Number>
                 <PlusMinusBtn id={elem.id} onClick={()=>plusItem(elem.id)}> + </PlusMinusBtn>
               </Counter>
-              <Delete id={elem.id} onClick={()=>deleteFromCart(elem.id)}> Delete </Delete>
+              <Delete id={elem.id} onClick={()=>this.delete(elem.id)}> Delete </Delete>
             </li>
           )) : <Empty>The cart is empty</Empty>}
         </Ul>
@@ -66,4 +71,4 @@ class Cart extends Component {
 
 export default connect (state => ({
   productsInCart: state.products,
-  }), {deleteFromCart, plusItem, minusItem})(Cart);
+  }), {deleteFromCart, plusItem, minusItem, setDisable})(Cart);
