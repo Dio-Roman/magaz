@@ -1,4 +1,4 @@
-import {ADD_TO_CART, PLUS, MINUS, DELETE, DISABLE, FETCH_REQUEST, FETCH_SUCCESS} from '../constants';
+import {ADD_TO_CART, PLUS, MINUS, DELETE, DISABLE, FETCH_SUCCESS} from '../constants';
 
 export const addToCart = (id, name, quantity, price, disabled) => ({
   type: ADD_TO_CART,
@@ -29,20 +29,9 @@ export const setDisable = (id, type, disabled) => ({
   disabled
 });
 
-
-//  function isLoading () {
-//   return {
-//       type: 'FETCH_REQUEST',
-//       // isLoading: bool
-//   };
-// }
-
-
 export const fetchData = (type, bool) => {
   return dispatch => {
     
-    // dispatch(isLoading())
-
     fetch('http://localhost:3000/testData.json')
       .then(response => {
           return response.json()

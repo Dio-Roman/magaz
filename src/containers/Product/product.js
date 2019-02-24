@@ -9,7 +9,6 @@ class Product extends Component {
     const {id, name, quantity, price, addToCart, setDisable} = this.props;
     addToCart (id, name,  quantity, price );
     setDisable (id);
-    // e.target.disabled = "true"
   }
 
   static propTypes = {
@@ -19,6 +18,8 @@ class Product extends Component {
     price: PropTypes.number,
     quantity: PropTypes.number,
     addToCart: PropTypes.func,
+    setDisable: PropTypes.func,
+    disabled: PropTypes.bool,
   }
 
   render () {

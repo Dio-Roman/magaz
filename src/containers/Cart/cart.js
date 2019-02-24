@@ -37,6 +37,7 @@ class Cart extends Component {
     productsInCart: PropTypes.array,
     deleteFromCart: PropTypes.func,
     plusItem: PropTypes.func,
+    setDisable: PropTypes.setDisable,
     minusItem: PropTypes.func,
   }
 

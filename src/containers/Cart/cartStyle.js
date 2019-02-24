@@ -32,7 +32,7 @@ color: orangered;
 font-weight: bold;
 `;
 const Ul = styled.ul`
-margin-left: -22px;
+margin-left: -24px;
 `;
 const PlusMinusBtn = styled.button`
 background-color: whitesmoke;

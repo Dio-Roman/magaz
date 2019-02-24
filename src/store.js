@@ -2,14 +2,14 @@ import {createStore, compose, applyMiddleware } from 'redux';
 import rootReducer from './reducers';
 import thunk from 'redux-thunk';
 
-// для redux dev tools
-/* eslint-disable no-underscore-dangle */
+// for redux dev tools
+/* eslint-disable no-underscore-dangle 
 const composeEnhancers =
   process.env.NODE_ENV !== 'production' &&
   typeof window === 'object' &&
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
-/* eslint-enable */
+ eslint-enable */
  
 const configureStore = preloadedState => (
     createStore (
@@ -17,7 +17,7 @@ const configureStore = preloadedState => (
         preloadedState,
         compose (
             applyMiddleware (thunk),
-            composeEnhancers (),
+            // composeEnhancers (),
         )
     )
 );

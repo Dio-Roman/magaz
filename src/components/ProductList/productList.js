@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-// import {data} from '../../data';
 import {connect} from 'react-redux';
 import {fetchData} from '../../actions/actionCreator';
-
+import PropTypes from 'prop-types';
 
 import {mainStyle} from './style';
 import Product from '../../containers/Product/product';
@@ -11,15 +10,17 @@ class ProductList extends Component {
   componentDidMount() {
     this.props.fetchData();
   }
-      //!!! бесклнечный вызов !!!
 
+  static propTypes = {
+    fetchData: PropTypes.func,
+    prodList: PropTypes.array,
+  }
 
   render () {
-    const {prodList, fetchData } = this.props;
+    const {prodList} = this.props;
     return (
         <main style={mainStyle}>
-            {/*!prodList.isFetching ? <p> "Loading ... Wait..."</p> : */
-              prodList.map(el=>(
+            {prodList.map(el=>(
               <Product
                 key = {el.id}
                 id = {el.id}
@@ -40,4 +41,3 @@ class ProductList extends Component {
     prodList : state.productsAssortiment,
   }), {fetchData})(ProductList);
   
-// export default ProductList;
