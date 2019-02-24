@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://dio-roman.github.io/magaz/",
+  "engines": {
+    "npm": "6.5.0",
+    "node": "10.14.2"
+  },
   "dependencies": {
     "@material-ui/core": "^3.9.0",
     "gh-pages": "^2.0.1",
