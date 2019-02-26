@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 const CartDiv = styled.div`
-margin-left: 15%;
+margin-left: 5vw;
+margin-bottom: 10px;
 width: 270px;
+@media (max-width: 1088px) {
+    order: -2;
+  }
 `;
 const TotalPriceP = styled.p`
 border-top: 2px solid green;

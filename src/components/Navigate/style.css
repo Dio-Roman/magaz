@@ -1,0 +1,8 @@
+@media (max-width: 1088px) {
+  .navi {
+    order: -2;
+}
+}
+.navi {
+  margin-left: 5px;
+}

@@ -23,14 +23,14 @@ class Product extends Component {
   }
 
   render () {
-    const {name, src, price, disabled} = this.props;
+    const {id, name, src, price, disabled} = this.props;
 
     return (
       <Card>
         <NameH2>{name}{console.log({name})}</NameH2>
         <img height="200" width="200" src={src} alt={name}/>
         <PriceP>Price: {price} rub.</PriceP>
-        <Btn onClick={this.addProduct} disabled={disabled}>Add to Cart</Btn>
+        <Btn position={id} onClick={this.addProduct} disabled={disabled}>Add to Cart</Btn>
       </Card>)
   }
 }

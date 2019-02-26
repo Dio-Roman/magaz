@@ -13,5 +13,10 @@ code {
     monospace;
 }
 #root {
-  display: flex
+  display: flex; 
+}
+ @media (max-width: 1088px) {
+  #root {
+    flex-direction: column;
+  }
 }
