@@ -31,7 +31,7 @@ export const setDisable = (id, type, disabled) => ({
 
 export const fetchData = (type, bool) => {
   return dispatch => {
-    // fetch('http://localhost:3000/testData.json')
+    
     fetch('https://reactredux-shop.herokuapp.com/testData.json')
       .then(response => {
           return response.json()
